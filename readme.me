@@ -1,0 +1,77 @@
+Ta prosta aplikacja jest próbą sprawdzenia możliwości Grok3 do tworzenia od zera aplikajci/gry w przeglądarce.
+Chciałem sprawdzić możliwości dostępnych darmowych LLM.
+
+
+Tekst wygenerowany w Grok3
+Etapy tworzenia gry "Strażak Mike" (od iteracji 13 do 21):
+
+- Iteracja 13 – Punkt startowy:
+Stan gry: Gra była w pełni funkcjonalna z podstawową mechaniką. Zawierała wóz strażacki sterowany strzałkami i spacją (ruch, obrót, gaszenie pożarów), system wody (uzupełnianie w remizie), pożary rozprzestrzeniające się między drzewami i budynkami, poziomy trudności, punktację oraz pasek stanu.
+Elementy wizualne:
+Drogi główne (pozioma i pionowa) oraz dojazdowe do budynków.
+Budynki (7 prostokątów) z dachami trapezowymi, oknami i numeracją (widoczną na prostokątach poprzez data-number).
+Remiza strażacka i parking.
+Drzewa generowane losowo z unikaniem kolizji.
+CSS: Budynki miały domyślne wypełnienie (przezroczyste), dachy w stylu trapezowym (ale nieprecyzyjnie zdefiniowanym), okna na ścianach.
+JS: Logika gry była kompletna – kolizje, ruch, pożary, poziomy.
+
+- Iteracja 14 (wspomniana jako punkt odniesienia):
+Uwagi: Iteracja 14 była używana jako punkt odniesienia w niektórych Twoich prośbach. Zawierała drobne poprawki w stosunku do 13, np. w stylach budynków i dróg, ale nie wprowadziliśmy jej zmian wprost – przeszliśmy od razu do 15 na bazie 14, a potem wróciliśmy do 13.
+
+- Iteracja 15 – Pierwsze większe zmiany:
+Cel: Poprawa rysowania budynków, dachów i dróg.
+Działania:
+Dachy: Zdefiniowano dach jako trapez równoramienny z precyzyjnym centrowaniem – środek dłuższego boku "a" na osi symetrii pionowej budynku i na górnej krawędzi prostokąta.
+Drogi: Główne drogi podzielono na prostokąty (pionowa na dwa segmenty), a dojazdowe zmieniono na zestawy prostokątów z zakrętami pod kątem prostym.
+Warstwy budynków: Wprowadzono hierarchię z-index (budynek: 1, dach: 2, okna/numeracja: 3), aby okna były widoczne nad powierzchnią i dachem.
+Efekt: Gra zyskała bardziej realistyczne drogi i precyzyjniejsze dachy, ale zmiany w drogach były zbyt złożone na tym etapie.
+
+- Iteracja 16 – Wycofanie zmian w drogach:
+Cel: Uproszczenie dróg po uwadze, że zmiany w iteracji 15 były niepotrzebne na tym etapie.
+Działania:
+Wycofano segmentację dróg głównych i dojazdowych, przywracając pojedyncze prostokąty z iteracji 14 (bazującej na 13).
+Zachowano poprawki dachów i warstw z iteracji 15.
+Efekt: Drogi wróciły do prostszej formy, a budynki zachowały ulepszone dachy i warstwy.
+
+- Iteracja 17 – Powrót do iteracji 14 i usunięcie dróg dojazdowych:
+Cel: Uproszczenie gry poprzez usunięcie dróg dojazdowych i dodanie wypełnienia budynków.
+Działania:
+Bazowano na iteracji 14 (zamiast 15/16), usuwając wszystkie drogi dojazdowe z HTML i CSS.
+Dodano indywidualne kolory wypełnienia dla każdego budynku (np. #8B5A2B, #A0522D itd.).
+Zachowano numerację budynków na prostokątach.
+Efekt: Gra stała się prostsza (bez dróg dojazdowych), a budynki zyskały zróżnicowane kolory, co poprawiło estetykę.
+
+- Iteracja 18 – Refaktoryzacja po zgłoszeniu przesunięcia budynków:
+Cel: Sprawdzenie i korekta rzekomego przesunięcia budynków po zmianach w iteracji 17.
+Działania:
+Zrefaktoryzowano kod HTML, CSS i JS dla lepszej czytelności (dodano komentarze, uporządkowano sekcje).
+Potwierdzono, że pozycje budynków w HTML i JS są identyczne z iteracją 14, a kolory wypełnienia nie wpływają na pozycję.
+Zachowano kolory budynków i numerację z iteracji 17.
+Efekt: Kod stał się bardziej przejrzysty, ale problem przesunięcia nie został potwierdzony – był to prawdopodobnie efekt wizualny po zmianach w wypełnieniu.
+
+- Iteracja 19 – Powrót do iteracji 13 i usunięcie dróg dojazdowych:
+Cel: Zresetowanie zmian do iteracji 13 i usunięcie dróg dojazdowych zgodnie z Twoim nowym poleceniem.
+Działania:
+Wrócono do kodu z iteracji 13 jako bazy.
+Usunięto wszystkie elementy HTML i CSS związane z drogami dojazdowymi (<div class="road access-road"> i styl .access-road).
+Zachowano domyślne wypełnienie budynków (przezroczyste), dachy i numerację z iteracji 13.
+Efekt: Gra wróciła do stanu z iteracji 13, ale bez dróg dojazdowych, co uprościło mapę.
+- Iteracja 20 – Poprawa dachów i wypełnienie budynków:
+Cel: Ulepszenie dachów i dodanie wypełnienia budynków zgodnie z nowymi wytycznymi.
+Działania:
+Dachy: Zdefiniowano dach jako trapez równoramienny:
+"a" = szerokość budynku (width: 100%).
+"b" = "a - 40%" (clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)).
+Środek "a" i oś symetrii trapezu na osi symetrii pionowej budynku (left: 50%; transform: translateX(-50%)).
+Wysokość: 15px.
+Wypełnienie: Dodano indywidualne kolory dla każdego budynku (np. #8B5A2B, #A0522D itd.).
+Numeracja: Zachowano widoczność numerów na prostokątach.
+Efekt: Dachy stały się precyzyjniejsze, a budynki zyskały kolory, co poprawiło wizualny odbiór gry.
+
+- Iteracja 21 – Usunięcie wypełnienia budynków:
+Cel: Wycofanie zmian w wypełnieniu budynków po zgłoszeniu, że spowodowały przesunięcie.
+Działania:
+Usunięto indywidualne kolory wypełnienia z CSS, przywracając domyślne (przezroczyste) tło budynków z iteracji 13.
+Zachowano poprawiony dach trapezowy z iteracji 20.
+Zachowano numerację budynków na prostokątach.
+Efekt: Budynki wróciły do wyglądu z iteracji 13 (bez wypełnienia), ale z ulepszonym dachem spełniającym Twoje wymagania. Pozycje budynków pozostały niezmienione.
