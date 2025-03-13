@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Strażak - Gra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="road main-road" style="width: 800px; height: 80px; top: 260px;"></div>
+        <div class="road main-road" style="width: 80px; height: 600px; left: 360px;"></div>
+        <div class="parking"></div>
+        <div id="fireStation"></div>
+        <!-- Budynki z numeracją -->
+        <div class="building" style="width: 62px; height: 42px; top: 500px; left: 700px;" data-number="1"></div>
+        <div class="building" style="width: 58px; height: 38px; top: 200px; left: 500px;" data-number="2"></div>
+        <div class="building" style="width: 60px; height: 40px; top: 350px; left: 100px;" data-number="3"></div>
+        <div class="building" style="width: 63px; height: 43px; top: 100px; left: 650px;" data-number="4"></div>
+        <div class="building" style="width: 57px; height: 37px; top: 400px; left: 200px;" data-number="5"></div>
+        <div class="building" style="width: 61px; height: 41px; top: 150px; left: 300px;" data-number="6"></div>
+        <div class="building" style="width: 59px; height: 39px; top: 450px; left: 600px;" data-number="7"></div>
+        <div id="statusBar">
+            <div class="statusItem">
+                <span id="waterText">Woda: 100%</span>
+                <div id="waterBar"></div>
+            </div>
+            <span id="scoreText">Punkty: 0 / 40</span>
+            <span id="firesText">Aktywne pożary: 0</span>
+            <span id="levelText">Poziom: 1</span>
+        </div>
+        <div id="startMenu">
+            <h1>Strażak Mike</h1>
+            <p id="startButton">Wciśnij Enter aby zacząć</p>
+            <p>Sterowanie:<br>Strzałki - ruch i obrót<br>Spacja - gaszenie pożarów (przytrzymaj)<br>Wjedź do remizy aby
+                uzupełnić wodę!<br>Zbieraj punkty za gaszenie pożarów.</p>
+        </div>
+        <div id="levelUpMessage"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
